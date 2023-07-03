@@ -9,10 +9,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 //@Service //spring이 올라올 때 스프링 컨테이너에 memberService를 등록해줌
+import org.springframework.transaction.annotation.Transactional;
+@Transactional
 public class MemberService {
-    private final MySQLMemberRepository memberRepository;
+    private final MemberRepository memberRepository;
     //@Autowired //등록하면서 생성자 호출. Autowired하면 너는 memberRepository가 필요하구나. 하고 넣어줌
-    public MemberService(MySQLMemberRepository memberRepository) { //생성자 주입
+    public MemberService(MemberRepository memberRepository) { //생성자 주입
         this.memberRepository = memberRepository;
     }//외부에서 memberRepository 넣어줌->DI라고 함...
 
